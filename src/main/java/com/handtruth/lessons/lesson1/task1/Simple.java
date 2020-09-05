@@ -9,7 +9,7 @@ class Simple {
      */
     double discriminant(double a, double b, double c) {
         //TODO your code
-        return 0.0;
+        return b*b-4*a*c;
     }
 
     /**
@@ -18,8 +18,7 @@ class Simple {
      * Поиск одного из корней квадратного уравнения
      */
     double sqRoot(double a, double b, double c) {
-        //TODO your code
-        return 0.0;
+        return (discriminant(a,b,c) - b)/(2*a);
     }
 
     /**
@@ -30,7 +29,7 @@ class Simple {
      */
     double seconds(int hours, int minutes, int seconds) {
         //TODO your code
-        return 0;
+        return hours*3600+minutes*60+seconds;
     }
 
     /**
@@ -40,6 +39,6 @@ class Simple {
      */
     int numberRevert(int number) {
         //TODO your code
-        return 0;
+        return number%10*100+number%100/10*10+number/100;
     }
 }
