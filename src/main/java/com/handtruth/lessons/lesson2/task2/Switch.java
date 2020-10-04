@@ -4,7 +4,7 @@ class Switch {
 
     /**
      * Trivial
-     *
+     * <p>
      * Пользователь вводит число от 1 до 10
      * Ипользуя конструкцию switch case вернуть
      * символьное описание числа: 1-> один и т.д.
@@ -12,18 +12,18 @@ class Switch {
      * строку "Число не входит в разрешенный интервал"
      */
 
-    String switchNumber(int number) {
+    public static String switchNumber(int number) {
         //TODO your code
         return "";
     }
 
     /**
      * Trivial
-     *
+     * <p>
      * На вход подается цвет, необходимо
      * вывести название цвета, т.е. White -> Белый и т.д.
      */
-    String switchEnum(Color color) {
+    public static String switchEnum(Color color) {
         //TODO your code
         return "";
     }

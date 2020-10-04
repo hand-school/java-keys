@@ -24,7 +24,7 @@ class MatrixTest {
 
     @Test
     @Tag("Trivial")
-    void createMatrix() {
+    void createMatrixTest() {
         Matrix res = new Matrix(new int[][]{
                 {1, 1, 1},
                 {1, 1, 1},
@@ -35,7 +35,7 @@ class MatrixTest {
 
     @Test
     @Tag("Medium")
-    void testEquals() {
+    void equalsTest() {
         Matrix a1 = new Matrix(new int[][]{
                 {1, 1, 1},
                 {1, 1, 1},

@@ -7,7 +7,7 @@ class ForWhile {
      * <p>
      * Вычислить факториал
      */
-    long factorial(int n) {
+    public static long factorial(int n) {
         // TODO your code
         return 0;
     }
@@ -17,7 +17,7 @@ class ForWhile {
      * <p>
      * Найти количество цифр в заданном числе
      */
-    int counter(int n) {
+    public static int counter(int n) {
         // TODO your code
         return 0;
     }
@@ -29,7 +29,7 @@ class ForWhile {
      * Взаимно простые числа не имеют общих делителей, кроме 1.
      * Например, 25 и 49 взаимно простые, а 6 и 8 -- нет.
      */
-    boolean isCoPrime(int a, int b) {
+    public static boolean isCoPrime(int a, int b) {
         // TODO your code
         return false;
     }
@@ -42,7 +42,7 @@ class ForWhile {
      * sin(x) = x - x^3 / 3! + x^5 / 5! - x^7 / 7! + ...
      * Нужную точность считать достигнутой, если очередной член ряда меньше eps по модулю
      */
-    double sin(double x, double eps) {
+    public static double sin(double x, double eps) {
         // TODO your code
         return 0;
     }
@@ -54,7 +54,7 @@ class ForWhile {
      * 149162536496481100121144...
      * Например, 2-я цифра равна 4, 7-я 5, 12-я 6.
      */
-    int squareSequenceDigit(int n) {
+    public static int squareSequenceDigit(int n) {
         // TODO your code
         return 0;
     }

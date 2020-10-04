@@ -11,7 +11,7 @@ class MatrixToolsTest {
 
     @Test
     @Tag("Easy")
-    void rotation() {
+    void rotationTest() {
         Matrix a = new Matrix(new int[][]{
                 {1, 2, 3},
                 {4, 5, 6},
@@ -27,7 +27,7 @@ class MatrixToolsTest {
 
     @Test
     @Tag("Easy")
-    void transpose() {
+    void transposeTest() {
         Matrix a = new Matrix(new int[][]{
                 {1, 2, 3},
                 {4, 5, 6},
@@ -43,7 +43,7 @@ class MatrixToolsTest {
 
     @Test
     @Tag("Medium")
-    void determinant() {
+    void determinantTest() {
         Matrix a = new Matrix(new int[][]{
                 {1, 2, 3},
                 {4, 5, 6},
@@ -60,7 +60,7 @@ class MatrixToolsTest {
 
     @Test
     @Tag("Medium")
-    void inverse() {
+    void inverseTest() {
         Matrix a = new Matrix(new int[][]{
                 {3, 4},
                 {5, 7}
@@ -74,7 +74,7 @@ class MatrixToolsTest {
 
     @Test
     @Tag("Easy")
-    void addition() {
+    void additionTest() {
         Matrix a = new Matrix(new int[][]{
                 {1, 2, 3},
                 {4, 5, 6},
@@ -95,7 +95,7 @@ class MatrixToolsTest {
 
     @Test
     @Tag("Medium")
-    void multiplication() {
+    void multiplicationTest() {
         Matrix a = new Matrix(new int[][]{
                 {4, 2},
                 {9, 0}
@@ -113,7 +113,7 @@ class MatrixToolsTest {
 
     @Test
     @Tag("Medium")
-    void multiplicationExceptions() {
+    void multiplicationExceptionsTest() {
         Matrix a = new Matrix(new int[][]{
                 {4}
         });

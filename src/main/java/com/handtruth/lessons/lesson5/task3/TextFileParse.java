@@ -15,23 +15,22 @@ class TextFileParse {
 
     /**
      * Normal
-     *
+     * <p>
      * Дано имя текстового файла, вернуть список с количеством слов на каждой строке
      * Словом считается любая последовательность символов, отделенная пробелами
      * Пример:
-     *  asdasdasdasd asdasd o, hi mark!
-     *  lorem ipsum
-     *  h4h4, n0b0dy r34ds t3st f1l3s
-     *  _1, ***, (T_T). !(°□°)!
-     *
-     *  Результат функции - {5, 2, 5, 4}
+     * asdasdasdasd asdasd o, hi mark!
+     * lorem ipsum
+     * h4h4, n0b0dy r34ds t3st f1l3s
+     * _1, ***, (T_T). !(°□°)!
+     * <p>
+     * Результат функции - {5, 2, 5, 4}
      */
 
-    List<Integer> countWords(String filename){
+    public static List<Integer> countWords(String filename) {
         // TODO your code
         return new ArrayList<>();
     }
-
 
 
     /**
@@ -41,12 +40,10 @@ class TextFileParse {
      * Вид формата <код страны> (<три числа>) <три числа>-<два числа>-<два числа>
      * В начале строки может быть один "+"
      */
-    Boolean parsePhoneNumber(String input) {
+    public static Boolean parsePhoneNumber(String input) {
         // TODO your code
         return false;
     }
-
-
 
 
     /**
@@ -58,20 +55,20 @@ class TextFileParse {
      * В domenname и servicename могут находиться только буквы и цифры
      * В nickname, буквы, цифры и _
      */
-    List<String> parseMails(String filename) {
+    public static List<String> parseMails(String filename) {
         return new ArrayList<>();
     }
 
 
     /**
      * Normal
-     *
+     * <p>
      * Дано имя текстового файла, необходимо переписать его содержимое в другой файл
      * Полученный файл должен быть идентичен изначальному
      * Имя нового файла так же задано в параметрах
      */
 
-    void rewriteFile(String inputName, String outName){
+    public static void rewriteFile(String inputName, String outName) {
         // TODO your code
     }
 

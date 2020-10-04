@@ -25,7 +25,7 @@ class CustomHashTableTest {
 
     @Test
     @Tag("Trivial")
-    void get() {
+    void getTest() {
         assertEquals(Integer.valueOf(1), table.get("111"));
         assertEquals(Integer.valueOf(1), table.get("222"));
         assertEquals(Integer.valueOf(4), table.get("444"));
@@ -35,7 +35,7 @@ class CustomHashTableTest {
 
     @Test
     @Tag("Trivial")
-    void containsKey() {
+    void containsKeyTest() {
         assertTrue(table.containsKey("111"));
         assertTrue(table.containsKey("222"));
         assertTrue(table.containsKey("333"));
@@ -45,7 +45,7 @@ class CustomHashTableTest {
 
     @Test
     @Tag("Trivial")
-    void containsValue() {
+    void containsValueTest() {
         assertTrue(table.containsValue(1));
         assertTrue(table.containsValue(4));
         assertTrue(table.containsValue(35));
@@ -55,7 +55,7 @@ class CustomHashTableTest {
 
     @Test
     @Tag("Medium")
-    void put() {
+    void putTest() {
         assertEquals(1, table.put("1", 1));
         assertEquals(2, table.put("2", 2));
         assertEquals(4, table.put("4", 4));
@@ -73,21 +73,20 @@ class CustomHashTableTest {
 
     @Test
     @Tag("Medium")
-    void remove() {
+    void removeTest() {
         assertEquals(1, table.remove("111"));
         assertNull(table.remove("7"));
-
     }
 
     @Test
     @Tag("Medium")
-    void removeException() {
+    void removeExceptionTest() {
         assertThrows(IllegalArgumentException.class, () -> table.remove(456));
     }
 
     @Test
     @Tag("Trivial")
-    void size() {
+    void sizeTest() {
         assertEquals(6, table.size());
         table.put("34534534", 345345);
         assertEquals(7, table.size());

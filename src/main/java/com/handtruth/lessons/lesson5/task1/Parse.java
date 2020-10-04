@@ -8,7 +8,7 @@ class Parse {
      * Вернуть его же в виде двухсимвольной строки, от "00" до "99"
      * Для конкатенации строк использовать метод concat()
      */
-    String toDigitStr(int n) {
+    public static String toDigitStr(int n) {
         // TODO your code
         return "";
     }
@@ -20,7 +20,7 @@ class Parse {
      * Вернуть текущее время в виде строки в формате "ЧЧ:ММ:СС".
      * Для конкатенации строк использовать StringBuilder
      */
-    String timeSecondsToStr(int seconds) {
+    public static String timeSecondsToStr(int seconds) {
         // TODO your code
         return "";
     }
@@ -31,7 +31,7 @@ class Parse {
      * Дано число. Если это число двоичное, вернуть true, иначе false.
      * (пример двоичного числа: 100101)
      */
-    boolean isBin(String n) {
+    public static boolean isBin(String n) {
         // TODO your code
         return true;
     }
@@ -42,7 +42,7 @@ class Parse {
      * Дана строка и индексы начала и конца промежутка. Вернуть содержимое строки в промежутке [n, m)
      * Не использовать стандартную функцию substring()
      */
-    String substring(String str, int n, int m) {
+    public static String substring(String str, int n, int m) {
         // TODO your code
         return "";
     }
@@ -54,7 +54,7 @@ class Parse {
      * int <операция> int; Могут быть операции +-*.
      * Вернуть результат выражения.
      */
-    int mathOperation(String example) {
+    public static int mathOperation(String example) {
         // TODO your code
         return 0;
     }
