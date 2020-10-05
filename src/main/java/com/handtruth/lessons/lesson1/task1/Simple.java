@@ -8,8 +8,8 @@ class Simple {
      * Вычислить дискриминант квадратного уравнения
      */
     public static double discriminant(double a, double b, double c) {
-        //TODO your code
-        return 0.0;
+        double d = b * b - 4 * a * c;
+        return d;
     }
 
     /**
@@ -18,8 +18,8 @@ class Simple {
      * Поиск одного из корней квадратного уравнения
      */
     public static double sqRoot(double a, double b, double c) {
-        //TODO your code
-        return 0.0;
+        double d = discriminant(a, b, c);
+        return (-b + Math.sqrt(d)) / (2 * a);
     }
 
     /**
