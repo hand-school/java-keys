@@ -4,7 +4,7 @@ class IfElse {
 
     /**
      * Trivial
-     *
+     * <p>
      * На вход подаются два числа.
      * Если первое больше второго, вывести 1,
      * Если равны - 0,
@@ -38,6 +38,11 @@ class IfElse {
     public static int triangleKind(double a, double b, double c) {
         // TODO your code
         return -1;
+    }
+
+    public static float multi_div(int a, int b, boolean isDivision) {
+        // TODO your code
+        return 1f;
     }
 
     /**
