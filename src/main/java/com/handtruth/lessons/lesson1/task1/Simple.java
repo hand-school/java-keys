@@ -29,8 +29,7 @@ class Simple {
      * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
      */
     public static double seconds(int hours, int minutes, int seconds) {
-        //TODO your code
-        return 0;
+        return hours * 60 * 60 + minutes * 60 + seconds;
     }
 
     /**
@@ -39,7 +38,9 @@ class Simple {
      * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
      */
     public static int numberRevert(int number) {
-        //TODO your code
-        return 0;
+        int LastDig = number % 10;
+        int FirstDig = number / 100;
+        int MidDig = (number / 10) % 10;
+        return LastDig * 100 + MidDig * 10 + FirstDig;
     }
 }
