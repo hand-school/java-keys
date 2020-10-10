@@ -1,5 +1,7 @@
 package com.handtruth.lessons.lesson1.task1;
 
+import java.util.Random;
+
 class Example {
 
     public static void main(String[] args) {
@@ -20,5 +22,4 @@ class Example {
 //        double result = Simple.discriminant(1.0, 2.0, 3.0);
 //        System.out.println(result);
     }
-
 }
