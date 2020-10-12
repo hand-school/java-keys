@@ -1,5 +1,7 @@
 package com.handtruth.lessons.lesson2.task1;
 
+import org.w3c.dom.ls.LSOutput;
+
 class IfElse {
 
     /**
@@ -31,8 +33,19 @@ class IfElse {
      * вернуть строку вида: «21 год», «32 года», «12 лет».
      */
     public static String ageDescription(int age) {
-        // TODO your code
-        return "TODO";
+        if (age > 0 && age < 200) {
+            if (age % 10 >= 5 || age % 10 == 0 || age == 12 || age % 100 == 11) {
+                return age + " лет";
+            } else {
+                if (age % 10 == 1) {
+                    return age + " год";
+                } else {
+                    return age + " года";
+                }
+            }
+        } else {
+            return "invalid";
+        }
     }
 
     /**
@@ -44,8 +57,19 @@ class IfElse {
      * Если такой треугольник не существует, вернуть -1.
      */
     public static int triangleKind(double a, double b, double c) {
-        // TODO your code
-        return -1;
+        if (a + b > c && a + c > b && b + c > a) {
+            if (a*a == b*b + c*c || b*b == a*a + c*c || c*c == a*a + b*b) {
+                return 1;
+            } else {
+                if (a*a > b*b + c*c || b*b > a*a + c*c || c*c > a*a + b*b) {
+                    return 2;
+                } else {
+                    return 0;
+                }
+            }
+        } else {
+            return -1;
+        }
     }
 
     public static float multi_div(int a, int b, boolean isDivision) {
