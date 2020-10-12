@@ -1,4 +1,4 @@
-package com.handtruth.lessons.lesson4;
+package com.handtruth.lessons.lesson4.task2;
 
 import java.util.ArrayList;
 import java.util.List;

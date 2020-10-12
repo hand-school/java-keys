@@ -1,4 +1,4 @@
-package com.handtruth.lessons.lesson4;
+package com.handtruth.lessons.lesson4.task2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,14 +7,14 @@ import java.util.Collections;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.handtruth.lessons.lesson4.ListTask.items;
-import static com.handtruth.lessons.lesson4.ListTask.linearSort;
-import static com.handtruth.lessons.lesson4.ListTask.longestTrueSequence;
-import static com.handtruth.lessons.lesson4.ListTask.maxNumber;
-import static com.handtruth.lessons.lesson4.ListTask.mergeSort;
-import static com.handtruth.lessons.lesson4.ListTask.positiveCounter;
-import static com.handtruth.lessons.lesson4.ListTask.quickSort;
-import static com.handtruth.lessons.lesson4.ListTask.simpleSort;
+import static com.handtruth.lessons.lesson4.task2.ListTask.items;
+import static com.handtruth.lessons.lesson4.task2.ListTask.linearSort;
+import static com.handtruth.lessons.lesson4.task2.ListTask.longestTrueSequence;
+import static com.handtruth.lessons.lesson4.task2.ListTask.maxNumber;
+import static com.handtruth.lessons.lesson4.task2.ListTask.mergeSort;
+import static com.handtruth.lessons.lesson4.task2.ListTask.positiveCounter;
+import static com.handtruth.lessons.lesson4.task2.ListTask.quickSort;
+import static com.handtruth.lessons.lesson4.task2.ListTask.simpleSort;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ListTaskTest {
