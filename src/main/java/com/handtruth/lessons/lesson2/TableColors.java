@@ -3,7 +3,18 @@ package com.handtruth.lessons.lesson2;
 public class TableColors {
 
     public static boolean tableColor(int pointX1, int pointY1, int pointX2, int pointY2) {
-        return false;
+        return FirstPointRes(pointX1, pointY1) == SecondPointRes(pointX2, pointY2);
+    }
+
+    private static boolean FirstPointRes(int pointX1, int pointY1) {
+        if (pointX1 % 2 == 0) {
+            return pointY1 % 2 == 0;
+        } else return pointY1 % 2 != 0;
+    }
+    private static boolean SecondPointRes(int pointX2, int pointY2) {
+        if (pointX2 % 2 == 0) {
+            return pointY2 % 2 == 0;
+        } else return pointY2 % 2 != 0;
     }
 
     //  Medium (Шахматная доска)

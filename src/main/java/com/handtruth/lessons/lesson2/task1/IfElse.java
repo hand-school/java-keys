@@ -34,14 +34,12 @@ class IfElse {
      */
     public static String ageDescription(int age) {
         if (age > 0 && age < 200) {
-            if (age % 10 >= 5 || age % 10 == 0 || age == 12 || age % 100 == 11) {
+            if (age % 10 >= 5 || age % 10 == 0 || (age % 100 >= 10 && age % 100 <= 19)) {
                 return age + " лет";
+            } else if (age % 10 == 1) {
+                return age + " год";
             } else {
-                if (age % 10 == 1) {
-                    return age + " год";
-                } else {
-                    return age + " года";
-                }
+                return age + " года";
             }
         } else {
             return "invalid";
@@ -57,11 +55,14 @@ class IfElse {
      * Если такой треугольник не существует, вернуть -1.
      */
     public static int triangleKind(double a, double b, double c) {
+        double max = max(a, b, c);
+        double min = min(a, b, c);
+        double other = a + b + c - max - min;
         if (a + b > c && a + c > b && b + c > a) {
-            if (a*a == b*b + c*c || b*b == a*a + c*c || c*c == a*a + b*b) {
+            if (max * max == min * min + other * other) {
                 return 1;
             } else {
-                if (a*a > b*b + c*c || b*b > a*a + c*c || c*c > a*a + b*b) {
+                if (max * max > min * min + other * other) {
                     return 2;
                 } else {
                     return 0;
@@ -69,6 +70,26 @@ class IfElse {
             }
         } else {
             return -1;
+        }
+    }
+
+    private static double max(double a, double b, double c) {
+        if (a > b && a > c) {
+            return a;
+        } else if (b > c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+
+    private static double min(double a, double b, double c) {
+        if (a < b && a < c) {
+            return a;
+        } else if (b < c) {
+            return b;
+        } else {
+            return c;
         }
     }
 
@@ -87,7 +108,32 @@ class IfElse {
      */
 
     public static int segmentLength(int a, int b, int c, int d) {
-        // TODO your code
-        return -1;
+        // 5 7 1 3
+        if (b >= c && d >= a) {
+            if (avgFirst(a, b, c, d) < avgSecond(a, b, c, d)) {
+                return avgSecond(a, b, c, d) - avgFirst(a, b, c, d);
+            } else {
+                return avgFirst(a, b, c, d) - avgSecond(a, b, c, d);
+            }
+        } else {
+            return -1;
+        }
     }
+
+    private static int avgSecond(int a, int b, int c, int d) {
+        if (b < d) {
+            return b;
+        } else {
+            return d;
+        }
+    }
+
+    private static int avgFirst(int a, int b, int c, int d) {
+        if (c > a) {
+            return c;
+        } else {
+            return a;
+        }
+    }
+
 }

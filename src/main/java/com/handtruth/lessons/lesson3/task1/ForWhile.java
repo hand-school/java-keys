@@ -8,8 +8,11 @@ class ForWhile {
      * Вычислить факториал
      */
     public static long factorial(int n) {
-        // TODO your code
-        return 0;
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact = fact * i;
+        }
+        return fact;
     }
 
     /**
@@ -18,8 +21,12 @@ class ForWhile {
      * Найти количество цифр в заданном числе
      */
     public static int counter(int n) {
-        // TODO your code
-        return 0;
+        int s = 0;
+        do {
+            s++;
+            n = n / 10;
+        } while (n != 0);
+        return s;
     }
 
     /**
@@ -30,8 +37,12 @@ class ForWhile {
      * Например, 25 и 49 взаимно простые, а 6 и 8 -- нет.
      */
     public static boolean isCoPrime(int a, int b) {
-        // TODO your code
-        return false;
+        while (b !=0) {
+            int tmp = a%b;
+            a = b;
+            b = tmp;
+        }
+        return a == 1;
     }
 
 

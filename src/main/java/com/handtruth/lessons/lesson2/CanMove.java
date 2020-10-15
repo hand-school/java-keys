@@ -3,7 +3,7 @@ package com.handtruth.lessons.lesson2;
 public class CanMove {
 
     public static boolean canMove(int start_x, int start_y, int end_x, int end_y) {
-        return true;
+        return start_x == end_x || start_y == end_y;
     }
 
 
