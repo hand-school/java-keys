@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.handtruth.lessons.lesson4.task1.ArrayTask.changeNumbers;
 import static com.handtruth.lessons.lesson4.task1.ArrayTask.filterPeoples;
+import static com.handtruth.lessons.lesson4.task1.ArrayTask.revertArray;
 import static com.handtruth.lessons.lesson4.task1.ArrayTask.uncommonPartOfArr;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -35,7 +36,7 @@ public class ArrayTaskTest {
         int[] arr = new int[]{1, 2, 3, 4, 5, 6};
         int[] expected = new int[]{6, 5, 4, 3, 2, 1};
 
-        assertArrayEquals(expected, changeNumbers(arr));
+        assertArrayEquals(expected, revertArray(arr));
         assertArrayEquals(new int[0], new int[0]);
     }
 
