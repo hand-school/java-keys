@@ -37,8 +37,8 @@ class ForWhile {
      * Например, 25 и 49 взаимно простые, а 6 и 8 -- нет.
      */
     public static boolean isCoPrime(int a, int b) {
-        while (b !=0) {
-            int tmp = a%b;
+        while (b != 0) {
+            int tmp = a % b;
             a = b;
             b = tmp;
         }
@@ -54,8 +54,18 @@ class ForWhile {
      * Нужную точность считать достигнутой, если очередной член ряда меньше eps по модулю
      */
     public static double sin(double x, double eps) {
-        // TODO your code
-        return 0;
+        double res = 0;
+        double n = 1;
+        int m = 1;
+        int sign = 1;
+        while (n > eps) {
+            n = Math.pow(x, m) / factorial(m);
+            m += 2;
+            res += sign * n;
+            sign *= -1;
+            // нормализовать
+        }
+        return res;
     }
 
     /**

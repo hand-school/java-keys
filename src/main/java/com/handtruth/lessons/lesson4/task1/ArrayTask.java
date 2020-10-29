@@ -1,5 +1,8 @@
 package com.handtruth.lessons.lesson4.task1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ArrayTask {
 
     //  Easy
@@ -8,7 +11,13 @@ public class ArrayTask {
 //  Вывести количетсво фамилий, начинающихся на эту букву
 //  ИГНОРИРОВТЬ case
     public static int filterPeoples(String[] lastNames, char filter) {
-        return -1;
+        int num = 0;
+        for (String lastName : lastNames) {
+            if (lastName.toLowerCase().charAt(0) == Character.toLowerCase(filter)) {
+                num++;
+            }
+        }
+        return num;
     }
 
     //  Easy
@@ -16,12 +25,25 @@ public class ArrayTask {
 //  Заменить в исходном массиве все отрицательные числа на 0
 //  Вернуть полученный массив
     public static int[] changeNumbers(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] < 0) {
+                numbers[i] = 0;
+            }
+        }
         return numbers;
     }
 
     //  Easy
 //  Необходио развернуть массив
     public static int[] revertArray(int[] array) {
+        int last = array.length - 1;
+        int tmp = 0;
+        for (int i = 0; i < array.length / 2; i++) {
+            tmp = array[i];
+            array[i] = array[last];
+            array[last] = tmp;
+            last--;
+        }
         return array;
     }
 

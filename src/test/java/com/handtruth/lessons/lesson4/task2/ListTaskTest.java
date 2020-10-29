@@ -100,6 +100,9 @@ class ListTaskTest {
                 longestTrueSequence(Arrays.asList(true, true, true, false, false, true, false, true, true))
         );
 
+        assertEquals(8,
+                longestTrueSequence(Arrays.asList(true, true, true, true, true, true, false, true, true))
+        );
 
     }
 }

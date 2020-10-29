@@ -11,8 +11,13 @@ class ListTask {
      * Найти количество неотрицательных элементов списка
      */
     public static int positiveCounter(List<Integer> list) {
-        // TODO your code
-        return 0;
+        int n = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) >= 0) {
+                n++;
+            }
+        }
+        return n;
     }
 
     /**
@@ -22,8 +27,13 @@ class ListTask {
      * (Гарантируется, что список не пустой)
      */
     public static int maxNumber(List<Integer> list) {
-        // TODO your code
-        return 0;
+        int max = list.get(0);
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) > max) {
+                max = list.get(i);
+            }
+        }
+        return max;
     }
 
     /**
@@ -33,8 +43,16 @@ class ListTask {
      * (все элементы отсортированы по возрастанию)
      */
     public static List<Integer> items(List<Integer> list1, List<Integer> list2) {
-        // TODO your code
-        return new ArrayList<>();
+        List<Integer> list3 = new ArrayList<>();
+        for (int i = 0; i < list1.size(); i++) {
+            for (int j = 0; j < list2.size(); j++) {
+                if (list1.get(i).equals(list2.get(j))) {
+                    list3.add(list1.get(i));
+                }
+            }
+        }
+        // оптимальное решение нужно
+        return list3;
     }
 
     /**
@@ -44,8 +62,20 @@ class ListTask {
      * (алгоритм реализовать самостоятельно)
      */
     public static List<Integer> simpleSort(List<Integer> list) {
-        // TODO your code
-        return new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+        boolean needSwap = true;
+        while (needSwap) {
+            needSwap = false;
+            for (int j = 1; j < list.size(); j++) {
+                if (list.get(j) < list.get(j - 1)) {
+                    int tmp = list.get(j);
+                    list.set(j, list.get(j - 1));
+                    list.set(j - 1, tmp);
+                    needSwap = true;
+                }
+            }
+        }
+        return list;
     }
 
     /**
@@ -77,8 +107,12 @@ class ListTask {
      * Отсортировать входной список по возрастанию
      * (линейное время)
      */
-    public static List<Integer> linearSort(List<Integer> list) {
-        // TODO your code
+    public static List<Integer> linearSort(List<Integer> list) { // 5 4 3 6 7
+        ArrayList<Integer> SortedList = new ArrayList<Integer>();
+        for (int i = 0; i < list.size(); i++) {
+            int nextValue = SortedList.get(list.get(i))+1;
+            SortedList.set(list.get(i), nextValue);
+        }
         return new ArrayList<>();
     }
 
@@ -89,14 +123,30 @@ class ListTask {
      * Необходимо найти наиболее длинную последовательность значений true.
      * Если посреди последовательности true встреается значение false (только одно и только один раз),
      * его можно проигнорировать и считать последовательность непрерывной (в длину такой последовательности не входит false).
-     * Известно, что есть решение за линейное время :)
+     * Известно, что есть решение за линейное время :) :))))))))))))))))))))))))))))))))))))))))))))
      * <p>
      * Пример :
      * на входе - {T,T,T,F,T,T,F,F,T,T,T,T}
      * ответ - 5
      */
     public static Integer longestTrueSequence(List<Boolean> list) {
-        // TODO your code
-        return 0;
+        int summ = 0;
+        int maxSumm = 0;
+        int summFalse = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (summFalse < 2) {
+                if (list.get(i)) {
+                    summ++;
+                } else {
+                    summFalse++;
+                }
+            } else {
+                if (summ > maxSumm) {
+                    maxSumm = summ;
+                }
+                summ = 0;
+            }
+        }
+        return maxSumm;
     }
 }

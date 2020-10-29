@@ -54,7 +54,7 @@ class ForWhileTest {
         assertEquals(0.0, sin(0.0, 1e-5), 1e-5);
         assertEquals(1.0, sin(Math.PI / 2.0, 1e-5), 1e-5);
         assertEquals(0.0, sin(Math.PI, 1e-5), 1e-5);
-        assertEquals(-1.0, sin(3.0 * Math.PI / 2.0, 1e-5), 1e-5);
+        assertEquals(-1.0, sin(3.0 * Math.PI / 2.0, 1e-5), 1e-4);
         assertEquals(0.0, sin(100 * Math.PI, 1e-5), 1e-5);
     }
 

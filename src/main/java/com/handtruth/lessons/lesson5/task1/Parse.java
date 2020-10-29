@@ -9,8 +9,12 @@ class Parse {
      * Для конкатенации строк использовать метод concat()
      */
     public static String toDigitStr(int n) {
-        // TODO your code
-        return "";
+        String res = String.valueOf(n);
+        if (n < 10) {
+            return "0".concat(res);
+        } else {
+            return res;
+        }
     }
 
     /**

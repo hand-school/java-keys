@@ -15,9 +15,9 @@ public class ArrayTaskTest {
     @Test
     @Tag("Easy")
     void filterPeoplesTest() {
-        String[] arr = new String[]{"Петров", "Иванов", "сидоров"};
+        String[] arr = new String[]{"Петров", "Иванов", "Сидоров"};
 
-        assertEquals(1, filterPeoples(arr, 'C'));
+        assertEquals(1, filterPeoples(arr, 'С'));
     }
 
     @Test
