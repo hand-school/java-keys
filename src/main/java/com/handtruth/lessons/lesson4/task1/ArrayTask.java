@@ -6,7 +6,7 @@ public class ArrayTask {
 //  На вход передается массив, состоящий из фамилий
 //  А также буква
 //  Вывести количетсво фамилий, начинающихся на эту букву
-//  ИГНОРИРОВТЬ case
+//  ИГНОРИРОВТЬ регистр
     public static int filterPeoples(String[] lastNames, char filter) {
         return -1;
     }
