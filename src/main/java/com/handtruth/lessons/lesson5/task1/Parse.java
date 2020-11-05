@@ -25,8 +25,17 @@ class Parse {
      * Для конкатенации строк использовать StringBuilder
      */
     public static String timeSecondsToStr(int seconds) {
-        // TODO your code
-        return "";
+        int resHours = seconds / 60 / 60;
+        int resMinutes = (seconds / 60) - (resHours * 60);
+        int resSeconds = seconds - (seconds / 60 * 60);
+        StringBuilder res = new StringBuilder();
+        res.append(toDigitStr(resHours))
+                .append(":")
+                .append(toDigitStr(resMinutes))
+                .append(":")
+                .append(toDigitStr(resSeconds));
+        return res.toString();
+//        зочем стрингбилдорр
     }
 
     /**
@@ -36,7 +45,12 @@ class Parse {
      * (пример двоичного числа: 100101)
      */
     public static boolean isBin(String n) {
-        // TODO your code
+        char[] ch = n.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] % 10 < 2) {
+                return false;
+            }
+        }
         return true;
     }
 
