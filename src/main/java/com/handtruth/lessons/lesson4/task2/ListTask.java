@@ -44,14 +44,11 @@ class ListTask {
      */
     public static List<Integer> items(List<Integer> list1, List<Integer> list2) {
         List<Integer> list3 = new ArrayList<>();
-        for (int i = 0; i < list1.size(); i++) {
-            for (int j = 0; j < list2.size(); j++) {
-                if (list1.get(i).equals(list2.get(j))) {
-                    list3.add(list1.get(i));
-                }
+        for (Integer integer : list2) {
+            if (list1.contains(integer)) {
+                list3.add(integer);
             }
         }
-        // оптимальное решение нужно
         return list3;
     }
 
@@ -110,7 +107,7 @@ class ListTask {
     public static List<Integer> linearSort(List<Integer> list) { // 5 4 3 6 7
         ArrayList<Integer> SortedList = new ArrayList<Integer>();
         for (int i = 0; i < list.size(); i++) {
-            int nextValue = SortedList.get(list.get(i))+1;
+            int nextValue = SortedList.get(list.get(i)) + 1;
             SortedList.set(list.get(i), nextValue);
         }
         return new ArrayList<>();
@@ -139,6 +136,9 @@ class ListTask {
                     summ++;
                 } else {
                     summFalse++;
+                }
+                if (list.size() - summ == 1) {
+                    return summ;
                 }
             } else {
                 if (summ > maxSumm) {

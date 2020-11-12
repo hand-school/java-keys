@@ -20,7 +20,17 @@ public class Character {
     }
 
     public void attack(Character ch1) {
-        ch1.health -= this.damage;
+        if (ch1.defense > 0) {
+            ch1.defense -= this.damage;
+        } else {
+            if (ch1.defense < 0) {
+                ch1.defense = 0;
+            }
+            ch1.health -= this.damage;
+        }
+        if (this.health < 0) {
+            this.health = 0;
+        }
     }
     public void skill() {
 
@@ -30,6 +40,6 @@ public class Character {
     public String toString() {
         return "Character \n name = " + this.name;
 // атака зависит от брони противника; хп < 0 => hp = 0;
-//  придумать скиллы
+//  придумать скиллы : восстанавливает 10хп, следующая атакая наносит на 5 урона больше,
     }
 }

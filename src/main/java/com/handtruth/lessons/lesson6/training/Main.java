@@ -8,5 +8,6 @@ public class Main {
         human.attack(orc);
         System.out.println(orc.health);
         System.out.println(orc.toString());
+
     }
 }

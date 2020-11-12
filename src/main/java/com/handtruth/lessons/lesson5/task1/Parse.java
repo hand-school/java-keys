@@ -3,7 +3,7 @@ package com.handtruth.lessons.lesson5.task1;
 class Parse {
     /**
      * Easy
-     *
+     * <p>
      * Дано число n от 0 до 99.
      * Вернуть его же в виде двухсимвольной строки, от "00" до "99"
      * Для конкатенации строк использовать метод concat()
@@ -19,7 +19,7 @@ class Parse {
 
     /**
      * Easy
-     *
+     * <p>
      * Дано seconds -- время в секундах, прошедшее с начала дня.
      * Вернуть текущее время в виде строки в формате "ЧЧ:ММ:СС".
      * Для конкатенации строк использовать StringBuilder
@@ -40,7 +40,7 @@ class Parse {
 
     /**
      * Easy
-     *
+     * <p>
      * Дано число. Если это число двоичное, вернуть true, иначе false.
      * (пример двоичного числа: 100101)
      */
@@ -56,24 +56,51 @@ class Parse {
 
     /**
      * Medium
-     *
+     * <p>
      * Дана строка и индексы начала и конца промежутка. Вернуть содержимое строки в промежутке [n, m)
      * Не использовать стандартную функцию substring()
      */
     public static String substring(String str, int n, int m) {
-        // TODO your code
-        return "";
+        char[] ch = str.toCharArray();
+        StringBuilder res = new StringBuilder();
+        for (int i = n; i < m; i++) {
+            res.append(str.charAt(i));
+        }
+        return res.toString();
     }
 
     /**
-     * Hard
-     *
+     * Hard (very hard blyat)
+     * <p>
      * На входе простой математический пример в виде двух операндов и одной операции:
      * int <операция> int; Могут быть операции +-*.
      * Вернуть результат выражения.
      */
     public static int mathOperation(String example) {
-        // TODO your code
+        char[] ch = example.toCharArray();
+        int tmp = Integer.parseInt(String.valueOf(example.charAt(0)));
+        int tmp2 = Integer.parseInt(String.valueOf(example.charAt(example.length() - 1)));
+        if (example.contains("+")) {
+            return tmp + tmp2;
+        }
+        if (example.contains("*")) {
+            return example.charAt(0) * example.charAt(example.length() - 1);
+        }
+        if (example.contains("-")) {
+            return example.charAt(0) - example.charAt(example.length() - 1);
+        }
+        return 0;
+    }
+
+    private static int firstNum(char[] ch) {
+        StringBuilder tmpSB = new StringBuilder();
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] >= 0 && ch[i] <= 9) {
+                tmpSB.append(ch[i]);
+            } else {
+                break;
+            }
+        }
         return 0;
     }
 }

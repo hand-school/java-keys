@@ -9,7 +9,8 @@ class CustomParse {
      * (c[0]*31 + c[1])*31 + ... (с[i] - символ строки)
      */
     public static int customHash(String str) {
-        return 0;
+        return str.hashCode();
+//        и зочем это всё
     }
 
     /**
