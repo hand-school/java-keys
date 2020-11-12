@@ -89,7 +89,7 @@ class Parse {
         if (example.contains("-")) {
             return example.charAt(0) - example.charAt(example.length() - 1);
         }
-        return 0;
+        return 1;
     }
 
     private static int firstNum(char[] ch) {
