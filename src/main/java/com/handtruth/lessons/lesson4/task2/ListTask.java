@@ -137,15 +137,15 @@ class ListTask {
                 } else {
                     summFalse++;
                 }
-                if (list.size() - summ == 1) {
-                    return summ;
-                }
             } else {
                 if (summ > maxSumm) {
                     maxSumm = summ;
                 }
                 summ = 0;
             }
+        }
+        if (summ > maxSumm) {
+            maxSumm = summ;
         }
         return maxSumm;
     }

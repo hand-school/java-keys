@@ -35,7 +35,6 @@ class Parse {
                 .append(":")
                 .append(toDigitStr(resSeconds));
         return res.toString();
-//        зочем стрингбилдорр
     }
 
     /**
@@ -46,8 +45,9 @@ class Parse {
      */
     public static boolean isBin(String n) {
         char[] ch = n.toCharArray();
-        for (int i = 0; i < ch.length; i++) {
-            if (ch[i] % 10 < 2) {
+        for (char c : ch) {
+            System.out.println(Integer.toHexString(c));
+            if (c % 10 < 2) {
                 return false;
             }
         }
@@ -61,7 +61,6 @@ class Parse {
      * Не использовать стандартную функцию substring()
      */
     public static String substring(String str, int n, int m) {
-        char[] ch = str.toCharArray();
         StringBuilder res = new StringBuilder();
         for (int i = n; i < m; i++) {
             res.append(str.charAt(i));
