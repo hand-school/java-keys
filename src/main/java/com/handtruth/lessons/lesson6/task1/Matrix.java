@@ -37,7 +37,7 @@ public class Matrix {
      */
     public Matrix(int height, int weight, int e) {
         assert height > 0 && weight > 0 : "Значения ширины и высоты не могут быть меньше нуля!";
-        //TODO your code
+
     }
 
     /**
@@ -46,7 +46,7 @@ public class Matrix {
      * @return значение высоты
      */
     public int getHeight() {
-        return -1; //TODO your code
+        return this.height;
     }
 
     /**
@@ -55,7 +55,7 @@ public class Matrix {
      * @param height новое значние высоты
      */
     public void setHeight(int height) {
-        //TODO your code
+        this.height = height;
     }
 
     /**
@@ -64,7 +64,7 @@ public class Matrix {
      * @return значение ширины
      */
     public int getWeight() {
-        return -1; //TODO your code
+        return this.weight;
     }
 
     /**
@@ -73,7 +73,7 @@ public class Matrix {
      * @param weight новое значение ширины
      */
     public void setWeight(int weight) {
-        //TODO your code
+        this.weight = weight;
     }
 
     /**

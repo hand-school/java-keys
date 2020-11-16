@@ -8,6 +8,10 @@ public class Orc extends Character{
 
     @Override
     public void skill() {
-//        another skill
+        this.health /= 2;
+        this.maxHealth /= 2;
+        this.mana -= 30;
+        this.damage *= 2;
+//         можно ли прописать другую метод, например .attack
     }
 }
