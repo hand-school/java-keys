@@ -1,6 +1,5 @@
-package com.handtruth.lessons.lesson6.task3;
+package com.handtruth.lessons.lesson6.task4;
 
-import java.util.HashMap;
 import java.util.Objects;
 
 
