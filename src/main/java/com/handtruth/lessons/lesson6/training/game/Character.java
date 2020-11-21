@@ -1,4 +1,4 @@
-package com.handtruth.lessons.lesson6.training;
+package com.handtruth.lessons.lesson6.training.game;
 
 public class Character {
     public String name;

@@ -1,4 +1,4 @@
-package com.handtruth.lessons.lesson6.training;
+package com.handtruth.lessons.lesson6.training.game;
 
 public class Human extends Character {
     public Integer age;
