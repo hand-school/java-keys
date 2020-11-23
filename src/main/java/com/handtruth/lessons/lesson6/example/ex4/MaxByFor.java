@@ -17,4 +17,8 @@ public class MaxByFor implements Maximum {
         }
         return maximum;
     }
+
+    public void onlyMaxByFor() {
+
+    }
 }

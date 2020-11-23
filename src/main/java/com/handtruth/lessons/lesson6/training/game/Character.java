@@ -33,7 +33,7 @@ public class Character {
         }
     }
     public void skill() {
-
+        System.out.println("error");
     }
 
     @Override

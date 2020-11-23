@@ -24,8 +24,6 @@ public class Matrix {
     public Matrix(int[][] matrix) {
         assert matrix.length > 0 && matrix[0].length > 0 : "Значения ширины и высоты не могут быть меньше нуля!";
         this.matrix = matrix;
-        this.weight = matrix.length;
-        this.height = matrix[0].length;
     }
 
     /**
@@ -41,12 +39,13 @@ public class Matrix {
         assert height > 0 && weight > 0 : "Значения ширины и высоты не могут быть меньше нуля!";
         this.height = height;
         this.weight = weight;
-        matrix = new int[weight][height];
+        int[][] matrix = new int[weight][height];
         for (int i = 0; i < weight; i++) {
             for (int j = 0; j < height; j++) {
-               this.matrix[i][j] = e;
+              matrix[i][j] = e;
             }
         }
+        this.matrix = matrix;
 
     }
 
@@ -126,15 +125,9 @@ public class Matrix {
      * @return объект матрицы
      */
     public static Matrix createMatrix(int height, int weight, int e) {
-        int[][] matrix = new int[height][weight];
-        for (int i = 0; i < weight; i++) {
-            for (int j = 0; j < height; j++) {
-                matrix[i][j] = e;
-            }
-        }
-        return null;
+        Matrix matrix = new Matrix(height, weight, e);
+        return matrix;
     }
-}
     /**
 //     * Medium
 //     * <p>
@@ -146,20 +139,21 @@ public class Matrix {
 //     * @param o - объект для сравнения
 //     * @return true, если объекты совпадают, иначе false
 //     */
-//    @Override
-//    public boolean equals(Object o) {
-//        //TODO your code
-//        return false;
-//    }
-//
-//    /**
-//     * Medium
-//     * <p>
-//     * Реализовать получение hashcode матрицы.
-//     *
-//     * @return значение типа int
-//     */
-//    @Override
-//    public int hashCode() {
-//        return -1; //TODO your code
-//    }
+    @Override
+    public boolean equals(Object o) {
+        //TODO your code
+        return false;
+    }
+
+    /**
+     * Medium
+     * <p>
+     * Реализовать получение hashcode матрицы.
+     *
+     * @return значение типа int
+     */
+    @Override
+    public int hashCode() {
+        return -1; //TODO your code
+    }
+}

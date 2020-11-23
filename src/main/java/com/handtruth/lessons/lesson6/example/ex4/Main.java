@@ -18,15 +18,16 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 100);
 
-        MaxByFor maxByFor = new MaxByFor();
-        MaxBySort maxBySort = new MaxBySort();
-        MaxByFun maxByFun = new MaxByFun();
+        Maximum maxByFor = new MaxByFor();
+        Maximum maxBySort = new MaxBySort();
+        Maximum maxByFun = new MaxByFun();
 
         System.out.println(maxPlus100(list, maxByFor));
         System.out.println(maxPlus100(list, maxBySort));
         System.out.println(maxPlus100(list, maxByFun));
 
         MaxByFor maxByForEx = new MaxByFor();
+        maxByForEx.onlyMaxByFor();
         MaxBySort maxBySortEx = new MaxBySort();
 
         System.out.println(maxPlus50(list,maxByForEx));

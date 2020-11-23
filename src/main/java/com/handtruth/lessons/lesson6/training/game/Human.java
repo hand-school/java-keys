@@ -14,4 +14,22 @@ public class Human extends Character {
         this.health += 10;
         this.mana -= 30;
     }
+
+    public void onlyHuman() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                ", maxHealth=" + maxHealth +
+                ", health=" + health +
+                ", maxMana=" + maxMana +
+                ", mana=" + mana +
+                ", defense=" + defense +
+                ", damage=" + damage +
+                '}';
+    }
 }

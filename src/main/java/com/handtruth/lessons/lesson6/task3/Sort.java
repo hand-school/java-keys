@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Sort {
     // Метод сортировки списка (пузырьком, вставками, выбором)
-    void sort(List<Integer> list);
+    List<Integer> sort(List<Integer> list);
 }

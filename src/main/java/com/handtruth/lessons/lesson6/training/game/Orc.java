@@ -12,6 +12,5 @@ public class Orc extends Character{
         this.maxHealth /= 2;
         this.mana -= 30;
         this.damage *= 2;
-//         можно ли прописать другую метод, например .attack
     }
 }
