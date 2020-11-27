@@ -13,9 +13,9 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(12, 2, 3231, 42, 235, 100);
 
-        Bubble bubble = new Bubble();
-        Selection select = new Selection();
-        Inertion inert = new Inertion();
+        Sort bubble = new Bubble();
+        Sort select = new Selection();
+        Sort inert = new Inertion();
 
         printSortedList(list, bubble);
         printSortedList(list, select);

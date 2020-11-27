@@ -141,9 +141,13 @@ public class Matrix {
 //     */
     @Override
     public boolean equals(Object o) {
-        //TODO your code
+        for (int i = 0; i < this.weight; i++) {
+            for (int j = 0; j < this.height; j++) {
+               }
+            }
         return false;
-    }
+        }
+
 
     /**
      * Medium
