@@ -2,7 +2,7 @@ package com.handtruth.lessons.lesson7.task2;
 
 import java.util.Objects;
 
-import com.handtruth.lessons.lesson7.task1.CustomList;
+import com.handtruth.lessons.lesson7.CustomList;
 
 /**
  * ЗАДАНИЕ: реализовать оставшиеся методы

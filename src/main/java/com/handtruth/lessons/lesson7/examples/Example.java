@@ -1,6 +1,6 @@
 package com.handtruth.lessons.lesson7.examples;
 
-import com.handtruth.lessons.lesson7.task1.CustomList;
+import com.handtruth.lessons.lesson7.CustomList;
 import com.handtruth.lessons.lesson7.task2.SinglyLinkedList;
 
 public class Example {

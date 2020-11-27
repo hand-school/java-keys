@@ -1,7 +1,6 @@
-package com.handtruth.lessons.lesson7.task1;
+package com.handtruth.lessons.lesson7;
 
 /**
- * Необходимо реализовать кастомный список, который будет иметь следующие методы
  *
  * @param <T> тип данных списка
  */
