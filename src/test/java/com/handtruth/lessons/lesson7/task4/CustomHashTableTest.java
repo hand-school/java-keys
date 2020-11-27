@@ -1,4 +1,4 @@
-package com.handtruth.lessons.lesson6.task4;
+package com.handtruth.lessons.lesson7.task4;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
