@@ -16,7 +16,7 @@ public class Matrix {
 
     /**
      * Easy
-     * 
+     * <p>
      * Реализовать конструктор
      *
      * @param matrix - исходная матрица
@@ -28,7 +28,7 @@ public class Matrix {
 
     /**
      * Easy
-     * 
+     * <p>
      * Реализовать конструктор
      *
      * @param height высота матрицы
@@ -42,7 +42,7 @@ public class Matrix {
         int[][] matrix = new int[weight][height];
         for (int i = 0; i < weight; i++) {
             for (int j = 0; j < height; j++) {
-              matrix[i][j] = e;
+                matrix[i][j] = e;
             }
         }
         this.matrix = matrix;
@@ -128,25 +128,36 @@ public class Matrix {
         Matrix matrix = new Matrix(height, weight, e);
         return matrix;
     }
+
     /**
-//     * Medium
-//     * <p>
-//     * Реализовать метод проверки на равенство матриц.
-//     * Вместо матрица может прийти другой объект!
-//     * Не забудьте, что ссылка на сравниваемый объкт может совпадать с
-//     * сылкой на текущий объект.
-//     *
-//     * @param o - объект для сравнения
-//     * @return true, если объекты совпадают, иначе false
-//     */
+     * //     * Medium
+     * //     * <p>
+     * //     * Реализовать метод проверки на равенство матриц.
+     * //     * Вместо матрица может прийти другой объект!
+     * //     * Не забудьте, что ссылка на сравниваемый объкт может совпадать с
+     * //     * сылкой на текущий объект.
+     * //     *
+     * //     * @param o - объект для сравнения
+     * //     * @return true, если объекты совпадают, иначе false
+     * //
+     */
     @Override
     public boolean equals(Object o) {
-        for (int i = 0; i < this.weight; i++) {
-            for (int j = 0; j < this.height; j++) {
-               }
-            }
-        return false;
+        if (o == null) {
+            return false;
         }
+        if (this == o) {
+            return true;
+        }
+        if (o instanceof Matrix) {
+            Matrix m = (Matrix) o;
+            for (int i = 0; i < this.weight; i++) {
+                for (int j = 0; j < this.height; j++) {
+                }
+            }
+        }
+        return false;
+    }
 
 
     /**
