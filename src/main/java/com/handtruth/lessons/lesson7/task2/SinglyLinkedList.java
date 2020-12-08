@@ -22,7 +22,12 @@ public class SinglyLinkedList<E> implements CustomList<E> {
 
     @Override
     public boolean contains(E element) {
-        // TODO: реализовать
+        Node<E> el = root;
+        while (el.next != null) {
+            if (el.value == element) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -40,13 +45,25 @@ public class SinglyLinkedList<E> implements CustomList<E> {
 
     @Override
     public void add(int index, E element) {
-        // TODO: реализовать
+        Node<E> el = root;
+        int i = 0;
+        while (i < index - 1) {
+            el = el.next;
+            i++;
+        }
+        Node<E> el1 = new Node<>(element, el.next);
+        el.next = el1;
     }
 
     @Override
     public E get(int index) {
-        // TODO: реализовать
-        return null;
+        Node<E> element = root;
+        int i = 0;
+        while (i < index) {
+            element = element.next;
+            i++;
+        }
+        return element.value;
     }
 
     @Override
