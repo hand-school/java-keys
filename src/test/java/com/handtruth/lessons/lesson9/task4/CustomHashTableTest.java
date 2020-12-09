@@ -1,8 +1,10 @@
-package com.handtruth.lessons.lesson7.task4;
+package com.handtruth.lessons.lesson9.task4;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import com.handtruth.lessons.lesson9.task1.CustomHashTable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
