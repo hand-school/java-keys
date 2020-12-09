@@ -5,6 +5,8 @@ package com.handtruth.lessons.lesson8.task1;
  *
  * @param <E> - параметризация
  * @see java.util.Stack
+ * @see java.util.ArrayDeque
+ * @see java.util.LinkedList
  */
 public interface CustomStack<E> {
 
@@ -29,10 +31,15 @@ public interface CustomStack<E> {
      */
     E peek();
 
+    /**
+     * Пустой ли стек
+     *
+     * @return true или false
+     */
     boolean isEmpty();
 
     /**
-     * ищет заданный элемент в стеке, возвращая количество операций pop(),
+     * Ищет заданный элемент в стеке, возвращая количество операций pop(),
      * которые требуются для того чтобы перевести искомый элемент в вершину стека.
      * Если заданный элемент в стеке отсутствует, этот метод возвращает -1.
      *

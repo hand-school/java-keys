@@ -5,16 +5,11 @@ package com.handtruth.lessons.lesson8.task2;
  *
  * @param <E>
  * @see java.util.Queue
+ * @see java.util.Deque
+ * @see java.util.ArrayDeque
+ * @see java.util.LinkedList
  */
 public interface CustomQueue<E> {
-
-    /**
-     * Возвращает, но не удаляет, элемент из начала очереди.
-     * Если очередь пуста, генерирует исключение NoSuchElementException
-     *
-     * @return элемент
-     */
-    E element();
 
     /**
      * Добавляет элемент obj в конец очереди.
@@ -24,6 +19,14 @@ public interface CustomQueue<E> {
      * @return элемент удачно добавлен, возвращает true, иначе - false
      */
     boolean offer(E obj);
+
+    /**
+     * Возвращает, но не удаляет, элемент из начала очереди.
+     * Если очередь пуста, генерирует исключение NoSuchElementException
+     *
+     * @return элемент
+     */
+    E element();
 
     /**
      * Возвращает без удаления элемент из начала очереди.
