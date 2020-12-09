@@ -1,5 +1,7 @@
 package com.handtruth.lessons.lesson7.task1;
 
+import com.handtruth.lessons.lesson7.task2.SinglyLinkedList;
+
 import java.util.Arrays;
 
 public class Main {
@@ -25,6 +27,17 @@ public class Main {
         System.out.println(Arrays.toString(data.getData()));
         System.out.println(data.remove(15));
         data.remove(8);
+
+        SinglyLinkedList<Integer> data2 = new SinglyLinkedList<>();
+        data2.add(1);
+        data2.add(2);
+        data2.add(3);
+        data2.add(4);
+        data2.add(5);
+        System.out.println(data2.toString());
+        data2.remove(2);
+        System.out.println(data2.toString());
+
 
 
 

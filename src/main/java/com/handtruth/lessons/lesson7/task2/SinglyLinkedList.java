@@ -68,14 +68,30 @@ public class SinglyLinkedList<E> implements CustomList<E> {
 
     @Override
     public E set(int index, E newElement) {
-        // TODO: реализовать
-        return null;
+        Node<E> el = root;
+        int i = 0;
+        while (i < index) {
+            el = el.next;
+            i++;
+        }
+        el.value = newElement;
+        return el.value;
     }
 
     @Override
     public boolean remove(int index) {
-        // TODO: реализовать
-        return false;
+        Node<E> el = root;
+        int i = 0;
+        if (index > size) {
+            return false;
+        }
+        while (i < index - 1) {
+            el = el.next;
+            i++;
+        }
+        Node<E> node1 = new Node<>(el.value, el.next);
+        el = node1;
+        return true;
     }
 
     @Override
