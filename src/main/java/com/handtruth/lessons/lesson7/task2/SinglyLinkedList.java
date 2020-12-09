@@ -89,8 +89,7 @@ public class SinglyLinkedList<E> implements CustomList<E> {
             el = el.next;
             i++;
         }
-        Node<E> node1 = new Node<>(el.value, el.next);
-        el = node1;
+        el.next = el.next.next;
         return true;
     }
 

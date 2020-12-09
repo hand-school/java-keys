@@ -57,6 +57,9 @@ public class MyCutomLit<T> implements CustomList<T> {
 
     @Override
     public T get(int index) {
+        if (index >= size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         return (T) data[index];
     }
 
