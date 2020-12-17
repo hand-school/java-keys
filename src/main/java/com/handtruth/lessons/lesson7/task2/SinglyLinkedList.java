@@ -4,16 +4,75 @@ import java.util.Objects;
 
 import com.handtruth.lessons.lesson7.CustomList;
 
-/**
- * ЗАДАНИЕ: реализовать оставшиеся методы
- *
- * @param <E> тип данных списка
- */
 public class SinglyLinkedList<E> implements CustomList<E> {
 
     private Node<E> root;
     private Node<E> currentNode;
     private int size = 0;
+
+    public boolean hasNext() {
+        return currentNode.next != null;
+    }
+
+    public E next() {
+        if (hasNext()) {
+            currentNode = currentNode.next;
+        }
+        return currentNode.value;
+    }
+
+    public E root() {
+        currentNode = root;
+        return root.value;
+    }
+
+    public E end() {
+        Node<E> el = root;
+        while (el.next != null) {
+            el = el.next;
+        }
+        return el.value;
+    }
+
+    public void reverse() {
+        Node<E> prev = null;
+        currentNode = root;
+        Node<E> next = currentNode.next;
+
+        while (next != null) {
+            currentNode.next = prev;
+            prev = currentNode;
+            currentNode = next;
+            next = currentNode.next;
+        }
+        currentNode.next = prev;
+        Node<E> tmp = root;
+        root = currentNode;
+        currentNode = tmp;
+
+    }
+
+    private void swap(Node<E> el1, Node<E> el2) {
+        E tmp = el1.value;
+        el1.value = el2.value;
+        el2.value = tmp;
+
+    }
+
+    public void sort() {
+        boolean needSwap = true;
+        while (needSwap) {
+            Node<E> el = root;
+            needSwap = false;
+            while (el.next != null)  {
+                if ( (Integer) el.value > (Integer) el.next.value) {
+                    swap(el, el.next);
+                    needSwap = true;
+                }
+                el = el.next;
+            }
+        }
+    }
 
     @Override
     public int size() {
@@ -148,5 +207,4 @@ public class SinglyLinkedList<E> implements CustomList<E> {
             return Objects.hash(next, value);
         }
     }
-
 }
