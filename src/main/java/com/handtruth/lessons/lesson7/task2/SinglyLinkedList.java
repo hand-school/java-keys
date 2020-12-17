@@ -1,6 +1,8 @@
 package com.handtruth.lessons.lesson7.task2;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import com.handtruth.lessons.lesson7.CustomList;
@@ -15,6 +17,7 @@ public class SinglyLinkedList<E> implements CustomList<E> {
     private Node<E> root;
     private Node<E> currentNode;
     private int size = 0;
+    private int modCount = 0;
 
     @Override
     public int size() {
@@ -83,7 +86,41 @@ public class SinglyLinkedList<E> implements CustomList<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new SinglyLinkedListIterator();
+    }
+
+    class SinglyLinkedListIterator implements Iterator<E> {
+        private Node<E> current;
+        private final int expectedModCount;
+
+        public SinglyLinkedListIterator() {
+            this.current = new Node<E>(null, root);
+            this.expectedModCount = modCount;
+        }
+
+        @Override
+        public boolean hasNext() {
+            checkModification();
+            return size != 0 && current.next != null;
+        }
+
+        @Override
+        public E next() {
+            checkModification();
+            if (hasNext()) {
+                current = current.next;
+            } else {
+                throw new NoSuchElementException();
+            }
+            return current.value;
+        }
+
+        private void checkModification() {
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+        }
+
     }
 
     static class Node<E> {
