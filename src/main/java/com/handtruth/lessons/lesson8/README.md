@@ -1,0 +1,2 @@
+#### [Ссылка на статью про связный и двусвязный списки][https://javarush.ru/quests/lectures/questharvardcs50.level05.lecture05]
+[https://javarush.ru/quests/lectures/questharvardcs50.level05.lecture05]: https://javarush.ru/quests/lectures/questharvardcs50.level05.lecture05
