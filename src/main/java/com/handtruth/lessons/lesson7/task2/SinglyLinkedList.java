@@ -1,6 +1,9 @@
 package com.handtruth.lessons.lesson7.task2;
 
+import java.util.Comparator;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import com.handtruth.lessons.lesson7.CustomList;
@@ -10,29 +13,14 @@ public class SinglyLinkedList<E> implements CustomList<E> {
     private Node<E> root;
     private Node<E> currentNode;
     private int size = 0;
-
-    public boolean hasNext() {
-        return currentNode.next != null;
-    }
-
-    public E next() {
-        if (hasNext()) {
-            currentNode = currentNode.next;
-        }
-        return currentNode.value;
-    }
+    private int modCount = 0;
 
     public E root() {
-        currentNode = root;
         return root.value;
     }
 
     public E end() {
-        Node<E> el = root;
-        while (el.next != null) {
-            el = el.next;
-        }
-        return el.value;
+        return currentNode.value;
     }
 
     public void reverse() {
@@ -50,23 +38,23 @@ public class SinglyLinkedList<E> implements CustomList<E> {
         Node<E> tmp = root;
         root = currentNode;
         currentNode = tmp;
-
+        modCount++;
     }
 
     private void swap(Node<E> el1, Node<E> el2) {
         E tmp = el1.value;
         el1.value = el2.value;
         el2.value = tmp;
-
+        modCount++;
     }
 
-    public void sort() {
+    public void sort(Comparator<E> comparator) {
         boolean needSwap = true;
         while (needSwap) {
             Node<E> el = root;
             needSwap = false;
             while (el.next != null)  {
-                if ( (Integer) el.value > (Integer) el.next.value) {
+                if (comparator.compare(el.value, el.next.value) > 0) {
                     swap(el, el.next);
                     needSwap = true;
                 }
@@ -101,6 +89,7 @@ public class SinglyLinkedList<E> implements CustomList<E> {
         }
         currentNode = newNode;
         size++;
+        modCount++;
     }
 
     @Override
@@ -113,6 +102,7 @@ public class SinglyLinkedList<E> implements CustomList<E> {
         }
         Node<E> el1 = new Node<>(element, el.next);
         el.next = el1;
+        modCount++;
     }
 
     @Override
@@ -135,6 +125,7 @@ public class SinglyLinkedList<E> implements CustomList<E> {
             i++;
         }
         el.value = newElement;
+        modCount++;
         return el.value;
     }
 
@@ -150,6 +141,7 @@ public class SinglyLinkedList<E> implements CustomList<E> {
             i++;
         }
         el.next = el.next.next;
+        modCount++;
         return true;
     }
 
@@ -174,7 +166,41 @@ public class SinglyLinkedList<E> implements CustomList<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new SinglyLinkedListIterator();
+    }
+
+    class SinglyLinkedListIterator implements Iterator<E> {
+        private Node<E> current;
+        private final int expectedModCount;
+
+        public SinglyLinkedListIterator() {
+            this.current = new Node<E>(null, root);
+            this.expectedModCount = modCount;
+        }
+
+        @Override
+        public boolean hasNext() {
+            checkModification();
+            return size != 0 && current.next != null;
+        }
+
+        @Override
+        public E next() {
+            checkModification();
+            if (hasNext()) {
+                current = current.next;
+            } else {
+                throw new NoSuchElementException();
+            }
+            return current.value;
+        }
+
+        private void checkModification() {
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+        }
+
     }
 
     static class Node<E> {
