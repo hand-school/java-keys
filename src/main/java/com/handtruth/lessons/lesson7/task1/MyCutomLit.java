@@ -3,6 +3,7 @@ package com.handtruth.lessons.lesson7.task1;
 import com.handtruth.lessons.lesson7.CustomList;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class MyCutomLit<T> implements CustomList<T> {
 
@@ -79,5 +80,10 @@ public class MyCutomLit<T> implements CustomList<T> {
             data[i] = data[i + 1];
         }
         return true;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }
