@@ -6,7 +6,7 @@ package com.handtruth.lessons.lesson7;
  * @see java.util.ArrayList
  * @see java.util.LinkedList
  */
-public interface CustomList<T> {
+public interface CustomList<T> extends Iterable<T>{
     /**
      * Получение размера списка
      *

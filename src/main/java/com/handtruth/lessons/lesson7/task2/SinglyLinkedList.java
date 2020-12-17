@@ -1,5 +1,6 @@
 package com.handtruth.lessons.lesson7.task2;
 
+import java.util.Iterator;
 import java.util.Objects;
 
 import com.handtruth.lessons.lesson7.CustomList;
@@ -78,6 +79,11 @@ public class SinglyLinkedList<E> implements CustomList<E> {
             builder.append(currNode.toString());
         }
         return builder.toString();
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return null;
     }
 
     static class Node<E> {
