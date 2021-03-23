@@ -2,11 +2,14 @@ package com.handtruth.lessons.lesson7.lab7;
 
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 import com.handtruth.lessons.lesson7.task2.SinglyLinkedList;
 
 public class SinglyLinkedListLab {
     public static void main(String[] args) {
+
+
         SinglyLinkedList<Integer> data = new SinglyLinkedList<>();
 
         data.add(3);
