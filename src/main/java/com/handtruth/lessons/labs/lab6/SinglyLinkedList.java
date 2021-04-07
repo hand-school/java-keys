@@ -1,10 +1,11 @@
-package com.handtruth.lessons.lesson7.task2;
+package com.handtruth.lessons.labs.lab6;
+
+import com.handtruth.lessons.lesson7.CustomList;
 
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-
-import com.handtruth.lessons.lesson7.CustomList;
+import java.util.Objects;
 
 public class SinglyLinkedList<E> implements CustomList<E> {
 
@@ -21,6 +22,24 @@ public class SinglyLinkedList<E> implements CustomList<E> {
         return currentNode.value;
     }
 
+//    public void reverse() {
+//        Node<E> prev = null;
+//        currentNode = root;
+//        Node<E> next = currentNode.next;
+//
+//        while (next != null) {
+//            currentNode.next = prev;
+//            prev = currentNode;
+//            currentNode = next;
+//            next = currentNode.next;
+//        }
+//        currentNode.next = prev;
+//        Node<E> tmp = root;
+//        root = currentNode;
+//        currentNode = tmp;
+//        modCount++;
+//    }
+
     private void swap(Node<E> el1, Node<E> el2) {
         E tmp = el1.value;
         el1.value = el2.value;
@@ -33,7 +52,7 @@ public class SinglyLinkedList<E> implements CustomList<E> {
         while (needSwap) {
             Node<E> el = root;
             needSwap = false;
-            while (el.next != null) {
+            while (el.next != null)  {
                 if (comparator.compare(el.value, el.next.value) > 0) {
                     swap(el, el.next);
                     needSwap = true;
@@ -51,6 +70,12 @@ public class SinglyLinkedList<E> implements CustomList<E> {
 
     @Override
     public boolean contains(E element) {
+        Node<E> el = root;
+        while (el.next != null) {
+            if (el.value == element) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -82,17 +107,42 @@ public class SinglyLinkedList<E> implements CustomList<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        Node<E> element = root;
+        int i = 0;
+        while (i < index) {
+            element = element.next;
+            i++;
+        }
+        return element.value;
     }
 
     @Override
     public E set(int index, E newElement) {
-        return null;
+        Node<E> el = root;
+        int i = 0;
+        while (i < index) {
+            el = el.next;
+            i++;
+        }
+        el.value = newElement;
+        modCount++;
+        return el.value;
     }
 
     @Override
     public boolean remove(int index) {
-        return false;
+        Node<E> el = root;
+        int i = 0;
+        if (index > size) {
+            return false;
+        }
+        while (i < index - 1) {
+            el = el.next;
+            i++;
+        }
+        el.next = el.next.next;
+        modCount++;
+        return true;
     }
 
     @Override
@@ -166,17 +216,25 @@ public class SinglyLinkedList<E> implements CustomList<E> {
             if (next == null) {
                 nxt = "null";
             }
-            return "Node value=" + value + "} ---> " + nxt;
+            return "Node{hash=" + hashCode() + " value=" + value + "} ---> " + nxt;
         }
 
         @Override
         public boolean equals(Object o) {
-          return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            Node<?> node = (Node<?>) o;
+            return Objects.equals(next, node.next) &&
+                    value.equals(node.value);
         }
 
         @Override
         public int hashCode() {
-            return 0;
+            return Objects.hash(next, value);
         }
     }
 }

@@ -25,22 +25,17 @@ public class SinglyLinkedListLab {
         System.out.println(data.toString());
         System.out.println(" ");
 
+        IntegerComparator comparator = new IntegerComparator();
+        data.sort(comparator);
         System.out.println(data.toString());
 
         Iterator<Integer> iterator = data.iterator();
 
-        int summ = 0;
-
-        while (iterator.hasNext()) {
-            summ += iterator.next();
-        }
-        System.out.println(summ);
-
-        summ = 0;
-        for (Integer i : data) {
-            summ += i;
-        }
-        System.out.println(summ);
+//        while (iterator.hasNext()) {
+//            if (iterator.next() > 0) {
+//                System.out.println(iterator.next());
+//            }
+//        }
 
 //        iterator = data.iterator();
 //        summ = 0;
@@ -53,38 +48,38 @@ public class SinglyLinkedListLab {
 //            ind++;
 //        }
 //        System.out.println(summ);
+//
 
-        IntegerComparator comparator = new IntegerComparator();
-        data.sort(comparator);
 
-        // АНОНИМНЫЙ КЛАСС
-        data.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                if (o1.equals(o2)) {
-                    return 0;
-                } else if (o1 > o2) {
-                    return 1;
-                } else {
-                    return -1;
-                }
-            }
-        });
-
-        // ЛЯМБДА
-        data.sort((o1, o2) -> {
-            if (o1.equals(o2)) {
-                return 0;
-            } else if (o1 > o2) {
-                return 1;
-            } else {
-                return -1;
-            }
-        });
-
-        // ССЫЛКА НА МЕТОД СО ОДИНАКОВОЙ СИГНАТУРОЙ
-        data.sort(Integer::compareTo);
-
+//
+//        // АНОНИМНЫЙ КЛАСС
+//        data.sort(new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                if (o1.equals(o2)) {
+//                    return 0;
+//                } else if (o1 > o2) {
+//                    return 1;
+//                } else {
+//                    return -1;
+//                }
+//            }
+//        });
+//
+//        // ЛЯМБДА
+//        data.sort((o1, o2) -> {
+//            if (o1.equals(o2)) {
+//                return 0;
+//            } else if (o1 > o2) {
+//                return 1;
+//            } else {
+//                return -1;
+//            }
+//        });
+////
+//        // ССЫЛКА НА МЕТОД СО ОДИНАКОВОЙ СИГНАТУРОЙ
+//        data.sort(Integer::compareTo);
+//
 
 //        data.reverse();
 //
