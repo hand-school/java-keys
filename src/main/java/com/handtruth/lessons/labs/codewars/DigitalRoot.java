@@ -7,17 +7,17 @@ public class DigitalRoot {
      * continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
      */
     public static int digital_root(int n) {
-        int tmp = 0;
-        int summ = n;
-        while (summ > 9) {
-            tmp = 0;
-            while (summ > 0) { // 15
-                tmp += summ % 10; // 5+1
-                summ /= 10; // 0
-            }
-            summ = tmp;
+
+        if (n < 10) {
+            return n;
         }
-        return tmp;
+
+        int summ = 0;
+        while (n > 0) { // 15
+            summ += n % 10; // 5+1
+            n /= 10; // 0
+        }
+        return digital_root(summ);
     }
 
     public static void main(String[] args) {
