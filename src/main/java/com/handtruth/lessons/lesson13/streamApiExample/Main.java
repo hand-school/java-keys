@@ -49,6 +49,10 @@ public class Main {
         System.out.println("-------------");
 
         people.stream()
+                .filter(person -> person.getGender().equals(Gender.MALE))
+                .collect(Collectors.toList());
+
+        people.stream()
                 .max(Comparator.comparing(Person::getAge))
                 .ifPresent(System.out::println);
 
@@ -71,5 +75,13 @@ public class Main {
                 .collect(Collectors.toList());
 
         example.forEach(System.out::println);
+        System.out.println("-------------");
+
+        List<Integer> collect = people.stream()
+                .map(Person::getAge)
+                .collect(Collectors.toList());
+
+        collect.forEach(System.out::println);
+
     }
 }

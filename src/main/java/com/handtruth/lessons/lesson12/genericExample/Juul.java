@@ -1,4 +1,4 @@
-package com.handtruth.lessons.lesson12.GenericExample;
+package com.handtruth.lessons.lesson12.genericExample;
 
 public class Juul <T extends Cartridge> {
 

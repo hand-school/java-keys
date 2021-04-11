@@ -1,4 +1,4 @@
-package com.handtruth.lessons.lesson12.GenericExample;
+package com.handtruth.lessons.lesson12.genericExample;
 
 public class Main {
 
@@ -10,6 +10,6 @@ public class Main {
 
         Juul<MangoCartridge> juul = new Juul<>("Black", mango);
 
-        juul.getCartridge().taste();
+        juul.getCartridge().mango();
     }
 }
