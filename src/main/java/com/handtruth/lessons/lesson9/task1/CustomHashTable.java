@@ -31,7 +31,7 @@ public interface CustomHashTable<K, V> {
 
     /**
      * Trivial
-     *
+     * <p>
      * Проверка на присутствие ключа в структуре данных
      *
      * @param key - ключ
@@ -41,7 +41,7 @@ public interface CustomHashTable<K, V> {
 
     /**
      * Trivial
-     *
+     * <p>
      * Проверка на присутствие значения в структуре данных
      *
      * @param value - значение
@@ -51,7 +51,7 @@ public interface CustomHashTable<K, V> {
 
     /**
      * Medium
-     *
+     * <p>
      * Метод добавления ключ и значения в таблицу
      *
      * @param key   - ключ
@@ -62,7 +62,7 @@ public interface CustomHashTable<K, V> {
 
     /**
      * Medium
-     *
+     * <p>
      * Удаление элемента из структуры
      *
      * @param key - ключ
@@ -73,7 +73,7 @@ public interface CustomHashTable<K, V> {
 
     /**
      * Trivial
-     *
+     * <p>
      * Возвращает размер структуры
      *
      * @return размер структуры

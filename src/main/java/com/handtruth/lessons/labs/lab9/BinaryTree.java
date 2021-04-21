@@ -14,9 +14,9 @@ public class BinaryTree {
         Node currentNode = rootNode; // начинаем поиск с корневого узла
         while (currentNode.getValue() != value) { // поиск покуда не будет найден элемент или не будут перебраны все
             if (value < currentNode.getValue()) { // движение влево?
-                currentNode = currentNode.getLeftChild();
+                currentNode = currentNode.getleft();
             } else { //движение вправо
-                currentNode = currentNode.getRightChild();
+                currentNode = currentNode.getright();
             }
             if (currentNode == null) { // если потомка нет,
                 return null; // возвращаем null
@@ -39,15 +39,15 @@ public class BinaryTree {
                 if (value == currentNode.getValue()) {   // если такой элемент в дереве уже есть, не сохраняем его
                     return;    // просто выходим из метода
                 } else if (value < currentNode.getValue()) {   // движение влево?
-                    currentNode = currentNode.getLeftChild();
+                    currentNode = currentNode.getleft();
                     if (currentNode == null) { // если был достигнут конец цепочки,
-                        parentNode.setLeftChild(newNode); //  то вставить слева и выйти из методы
+                        parentNode.setleft(newNode); //  то вставить слева и выйти из методы
                         return;
                     }
                 } else { // Или направо?
-                    currentNode = currentNode.getRightChild();
+                    currentNode = currentNode.getright();
                     if (currentNode == null) { // если был достигнут конец цепочки,
-                        parentNode.setRightChild(newNode);  //то вставить справа
+                        parentNode.setright(newNode);  //то вставить справа
                         return; // и выйти
                     }
                 }
@@ -59,51 +59,51 @@ public class BinaryTree {
     {
         Node currentNode = rootNode;
         Node parentNode = rootNode;
-        boolean isLeftChild = true;
+        boolean isleft = true;
         while (currentNode.getValue() != value) { // начинаем поиск узла
             parentNode = currentNode;
             if (value < currentNode.getValue()) { // Определяем, нужно ли движение влево?
-                isLeftChild = true;
-                currentNode = currentNode.getLeftChild();
+                isleft = true;
+                currentNode = currentNode.getleft();
             } else { // или движение вправо?
-                isLeftChild = false;
-                currentNode = currentNode.getRightChild();
+                isleft = false;
+                currentNode = currentNode.getright();
             }
             if (currentNode == null)
                 return false; // yзел не найден
         }
 
-        if (currentNode.getLeftChild() == null && currentNode.getRightChild() == null) { // узел просто удаляется, если не имеет потомков
+        if (currentNode.getleft() == null && currentNode.getright() == null) { // узел просто удаляется, если не имеет потомков
             if (currentNode == rootNode) // если узел - корень, то дерево очищается
                 rootNode = null;
-            else if (isLeftChild)
-                parentNode.setLeftChild(null); // если нет - узел отсоединяется, от родителя
+            else if (isleft)
+                parentNode.setleft(null); // если нет - узел отсоединяется, от родителя
             else
-                parentNode.setRightChild(null);
-        } else if (currentNode.getRightChild() == null) { // узел заменяется левым поддеревом, если правого потомка нет
+                parentNode.setright(null);
+        } else if (currentNode.getright() == null) { // узел заменяется левым поддеревом, если правого потомка нет
             if (currentNode == rootNode)
-                rootNode = currentNode.getLeftChild();
-            else if (isLeftChild)
-                parentNode.setLeftChild(currentNode.getLeftChild());
+                rootNode = currentNode.getleft();
+            else if (isleft)
+                parentNode.setleft(currentNode.getleft());
             else
-                parentNode.setRightChild(currentNode.getLeftChild());
-        } else if (currentNode.getLeftChild() == null) { // узел заменяется правым поддеревом, если левого потомка нет
+                parentNode.setright(currentNode.getleft());
+        } else if (currentNode.getleft() == null) { // узел заменяется правым поддеревом, если левого потомка нет
             if (currentNode == rootNode)
-                rootNode = currentNode.getRightChild();
-            else if (isLeftChild)
-                parentNode.setLeftChild(currentNode.getRightChild());
+                rootNode = currentNode.getright();
+            else if (isleft)
+                parentNode.setleft(currentNode.getright());
             else
-                parentNode.setRightChild(currentNode.getRightChild());
+                parentNode.setright(currentNode.getright());
         } else { // если есть два потомка, узел заменяется преемником
             Node heir = receiveHeir(currentNode);// поиск преемника для удаляемого узла
-            Node temp = currentNode.getLeftChild();
+            Node temp = currentNode.getleft();
             if (currentNode == rootNode)
                 rootNode = heir;
-            else if (isLeftChild) {
-                parentNode.setLeftChild(heir);
-                heir.setLeftChild(temp);
+            else if (isleft) {
+                parentNode.setleft(heir);
+                heir.setleft(temp);
             } else
-                parentNode.setRightChild(heir);
+                parentNode.setright(heir);
         }
         return true; // элемент успешно удалён
     }
@@ -114,18 +114,18 @@ public class BinaryTree {
     private Node receiveHeir(Node node) {
         Node parentNode = node;
         Node heirNode = node;
-        Node currentNode = node.getRightChild(); // Переход к правому потомку
+        Node currentNode = node.getright(); // Переход к правому потомку
         while (currentNode != null) // Пока остаются левые потомки
         {
             parentNode = heirNode;// потомка задаём как текущий узел
             heirNode = currentNode;
-            currentNode = currentNode.getLeftChild(); // переход к левому потомку
+            currentNode = currentNode.getleft(); // переход к левому потомку
         }
         // Если преемник не является
-        if (heirNode != node.getRightChild()) // правым потомком,
+        if (heirNode != node.getright()) // правым потомком,
         { // создать связи между узлами
-            parentNode.setLeftChild(heirNode.getRightChild());
-            heirNode.setRightChild(node.getRightChild());
+            parentNode.setleft(heirNode.getright());
+            heirNode.setright(node.getright());
         }
         return heirNode;// возвращаем приемника
     }
@@ -147,10 +147,10 @@ public class BinaryTree {
                 Node temp = globalStack.pop(); // берем следующий, при этом удаляя его из стека
                 if (temp != null) {
                     System.out.print(temp.getValue()); // выводим его значение в консоли
-                    localStack.push(temp.getLeftChild()); // соохраняем в локальный стек, наследники текущего элемента
-                    localStack.push(temp.getRightChild());
-                    if (temp.getLeftChild() != null ||
-                            temp.getRightChild() != null)
+                    localStack.push(temp.getleft()); // соохраняем в локальный стек, наследники текущего элемента
+                    localStack.push(temp.getright());
+                    if (temp.getleft() != null ||
+                            temp.getright() != null)
                         isRowEmpty = false;
                 } else {
                     System.out.print("__");// - если элемент пустой
@@ -171,8 +171,8 @@ public class BinaryTree {
 
     static class Node {
         private int value; // ключ узла
-        private Node leftChild; // Левый узел потомок
-        private Node rightChild; // Правый узел потомок
+        private Node left; // Левый узел потомок
+        private Node right; // Правый узел потомок
 
         public void printNode() { // Вывод значения узла в консоль
             System.out.println(" Выбранный узел имеет значение :" + value);
@@ -186,28 +186,28 @@ public class BinaryTree {
             this.value = value;
         }
 
-        public Node getLeftChild() {
-            return this.leftChild;
+        public Node getleft() {
+            return this.left;
         }
 
-        public void setLeftChild(final Node leftChild) {
-            this.leftChild = leftChild;
+        public void setleft(final Node left) {
+            this.left = left;
         }
 
-        public Node getRightChild() {
-            return this.rightChild;
+        public Node getright() {
+            return this.right;
         }
 
-        public void setRightChild(final Node rightChild) {
-            this.rightChild = rightChild;
+        public void setright(final Node right) {
+            this.right = right;
         }
 
         @Override
         public String toString() {
             return "Node{" +
                     "value=" + value +
-                    ", leftChild=" + leftChild +
-                    ", rightChild=" + rightChild +
+                    ", left=" + left +
+                    ", right=" + right +
                     '}';
         }
     }
