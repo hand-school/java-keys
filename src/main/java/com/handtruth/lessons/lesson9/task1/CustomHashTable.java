@@ -1,7 +1,5 @@
 package com.handtruth.lessons.lesson9.task1;
 
-import java.util.Objects;
-
 
 /**
  * Hard
@@ -81,12 +79,16 @@ public interface CustomHashTable<K, V> {
     int size();
 
     class Node<K, V> {
+        final int hash;
         K key;
         V value;
+        Node<K,V> next;
 
-        public Node(K key, V value) {
+        public Node(int hash, K key, V value, Node<K, V> next) {
+            this.hash = hash;
             this.key = key;
             this.value = value;
+            this.next = next;
         }
 
         public K getKey() {
@@ -120,7 +122,9 @@ public interface CustomHashTable<K, V> {
 
         @Override
         public int hashCode() {
-            return Objects.hash(key, value);
+            int res = 17;
+            res = 31 * res + key.hashCode();
+            return res;
         }
 
         @Override

@@ -1,110 +1,101 @@
 package com.handtruth.lessons.labs.lab9;
 
-public class BinaryTree_2 {
+public class BinaryTree_2<T extends Comparable<T>> {
 
-    private Node rootNode;
+    private static class Node<T extends Comparable<T>> {
+        T val;
+        Node<T> left;
+        Node<T> right;
 
-    public BinaryTree_2() {
-        rootNode = null;
+        public Node(T val) {
+            this.val = val;
+            left = null;
+            right = null;
+        }
     }
 
-    public Node findNodeByValue(int value) {
-        Node currentNode = rootNode;
-        while (currentNode.getValue() != value) {
-            if (value < currentNode.getValue()) {
-                currentNode = currentNode.getleft();
-            } else {
-                currentNode = currentNode.getright();
-            }
-            if (currentNode == null) {
+    private Node<T> root;
+
+    private Node<T> insertNode(Node<T> current, T value) {
+        if (current == null) {
+            return new Node<>(value);
+        }
+        if (current.val.compareTo(value) < 0) {
+            current.right = insertNode(current.right, value);
+        } else if (current.val.compareTo(value) > 0) {
+            current.left = insertNode(current.left, value);
+        } else {
+            return current;
+        }
+        return current;
+    }
+
+    public void insert(T value) {
+        root = insertNode(root, value);
+    }
+
+    private boolean containsNode(Node<T> current, T value) {
+        if (current == null) {
+            return false;
+        }
+        if (value == current.val) {
+            return true;
+        }
+        return current.val.compareTo(value) < 0
+                ? containsNode(current.left, value)
+                : containsNode(current.right, value);
+    }
+
+    public boolean contains(T value) {
+        return containsNode(root, value);
+    }
+
+    private Node<T> deleteNode(Node<T> current, T value) {
+        if (current == null) {
+            return null;
+        }
+
+        if (value.equals(current.val)) {
+            if (current.left == null && current.right == null) {
                 return null;
             }
-        }
-        return currentNode;
-    }
-
-
-    public void insertNode(int value) {
-        if (findNodeByValue(value) != null) {
-            return;
-        }
-        Node newNode = new Node(value);
-        if (rootNode == null) {
-            rootNode = newNode;
-        } else {
-            Node currentNode = rootNode;
-            Node parentNode;
-            while (true) {
-                parentNode = currentNode;
-                if (value < currentNode.getValue()) {
-                    currentNode = currentNode.getleft();
-                    if (currentNode == null) {
-                        parentNode.setleft(newNode);
-                        return;
-                    }
-                } else {
-                    currentNode = currentNode.getright();
-                    if (currentNode == null) {
-                        parentNode.setright(newNode);
-                        return;
-                    }
-                }
+            if (current.right == null) {
+                return current.left;
             }
+
+            if (current.left == null) {
+                return current.right;
+            }
+            T smallestValue = findSmallestValue(current.right);
+            current.val = smallestValue;
+            current.right = deleteNode(current.right, smallestValue);
+            return current;
         }
+        if (value.compareTo(current.val) < 0) {
+            current.left = deleteNode(current.left, value);
+            return current;
+        }
+        current.right = deleteNode(current.right, value);
+        return current;
     }
 
-    public boolean deleteNode(int value) {
-        Node currentNode = rootNode;
-        Node parentNode = rootNode;
-
-        return false;
-
+    private T findSmallestValue(Node<T> root) {
+        return root.left == null ? root.val : findSmallestValue(root.left);
     }
 
-    static class Node {
-        private int value; // ключ узла
-        private Node left;
-        private Node right;
+    public void delete(T value) {
+        root = deleteNode(root, value);
+    }
 
-        public Node(int value) {
-            this.value = value;
-        }
+    public void print() {
+        print("", root, false);
+    }
 
-        public void printNode() { // Вывод значения узла в консоль
-            System.out.println(" Выбранный узел имеет значение :" + value);
-        }
-
-        private int getValue() {
-            return this.value;
-        }
-
-        private void setValue(int value) {
-            this.value = value;
-        }
-
-        private Node getleft() {
-            return this.left;
-        }
-
-        private void setleft(Node left) {
-            this.left = left;
-        }
-
-        private Node getright() {
-            return this.right;
-        }
-
-        private void setright(Node right) {
-            this.right = right;
-        }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "value=" + value +
-                    ", left=" + left +
-                    ", right=" + right +
-                    '}';
+    private void print(String prefix, Node<T> root, boolean isLeft) {
+        if (root != null) {
+            System.out.println(prefix + (isLeft ? "|-- " : "\\-- ") + root.val);
+            print(prefix + (isLeft ? "|   " : "    "), root.left, true);
+            print(prefix + (isLeft ? "|   " : "    "), root.right, false);
         }
     }
 }
